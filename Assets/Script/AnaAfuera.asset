@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b82400cb60e4754b8305cb84073b036, type: 3}
   m_Name: AnaAfuera
   m_EditorClassIdentifier: 
-  characterName: 
+  characterName: Ana
   description: 
-  hd_neutral: {fileID: 0}
-  hd_blush: {fileID: 0}
-  hd_pissed: {fileID: 0}
-  hu_neutral: {fileID: 0}
-  hu_blush: {fileID: 0}
-  hu_pissed: {fileID: 0}
+  hd_neutral: {fileID: 21300000, guid: 14d234ef607328a409b391d627f95279, type: 3}
+  hd_blush: {fileID: 21300000, guid: 23a9a7acc514ede47a6b2a6962aeb44b, type: 3}
+  hd_pissed: {fileID: 21300000, guid: fb96506a3abd82441b55d1eba96f74f1, type: 3}
+  hu_neutral: {fileID: 21300000, guid: 432098d6f1debab4eb645086a4b0c727, type: 3}
+  hu_blush: {fileID: 21300000, guid: 432098d6f1debab4eb645086a4b0c727, type: 3}
+  hu_pissed: {fileID: 21300000, guid: 432098d6f1debab4eb645086a4b0c727, type: 3}

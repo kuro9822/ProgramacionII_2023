@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b82400cb60e4754b8305cb84073b036, type: 3}
   m_Name: Ana
   m_EditorClassIdentifier: 
-  characterName: 
-  description: 
-  hd_neutral: {fileID: 0}
-  hd_blush: {fileID: 0}
-  hd_pissed: {fileID: 0}
-  hu_neutral: {fileID: 0}
-  hu_blush: {fileID: 0}
-  hu_pissed: {fileID: 0}
+  characterName: Ana
+  description: "Chica lectora, media timida pero con gran coraz\xF3n."
+  hd_neutral: {fileID: 21300000, guid: a8c3e04be2f714a40bd6c20762b6c9a2, type: 3}
+  hd_blush: {fileID: 21300000, guid: 73363a0899675a34fb9440d165a483d7, type: 3}
+  hd_pissed: {fileID: 21300000, guid: d030bcc6d97060d44b060175ab62a58c, type: 3}
+  hu_neutral: {fileID: 21300000, guid: ff6d460bd37f50a46a2ae16f7d74210f, type: 3}
+  hu_blush: {fileID: 21300000, guid: 977129555a252754aa9cb355ea180659, type: 3}
+  hu_pissed: {fileID: 21300000, guid: 5b8d16c22dacf2045876ebedb6269888, type: 3}

@@ -27,8 +27,10 @@ public class DialogueManager : MonoBehaviour
     public Image portraitCharacter;
     public int indexDialogue = 0;
     public List<Dialogue> dialogues;
+    
     private void Start()
     {
+      
         ShowDialogue(dialogues[0]);
     }
     public void ShowDialogue(Dialogue dialogue)
