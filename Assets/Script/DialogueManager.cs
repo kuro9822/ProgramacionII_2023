@@ -22,19 +22,34 @@ public class Dialogue
 
 public class DialogueManager : MonoBehaviour
 {
+    public static DialogueManager instance;
     public TextMeshProUGUI nameCharacter;
     public TextMeshProUGUI dialogueCharacter;
     public Image portraitCharacter;
     public int indexDialogue = 0;
     public List<Dialogue> dialogues;
-    
+    public CanvasGroup cg;
+    public bool isTalking;
+    public PlayerController player;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Start()
     {
-      
-        ShowDialogue(dialogues[0]);
+        cg.alpha = 0;
+        cg.interactable = false;
+        cg.blocksRaycasts = false;
     }
     public void ShowDialogue(Dialogue dialogue)
     {
+        isTalking = true;
+        player.canMove = false;
+        cg.alpha = 1;
+        cg.interactable = true;
+        cg.blocksRaycasts = true;
         nameCharacter.text = dialogue.character.characterName;
         dialogueCharacter.text = dialogue.dialogueCharacter;
         portraitCharacter.sprite = dialogue.character.GetSprite(dialogue.expression, dialogue.headDown);
@@ -42,7 +57,26 @@ public class DialogueManager : MonoBehaviour
     public void NextDialogue()
     {
         indexDialogue++;
-        ShowDialogue(dialogues[indexDialogue]);
+        if (indexDialogue >= dialogues.Count)
+        {
+            cg.alpha = 0;
+            cg.interactable = false;
+            cg.blocksRaycasts = false;
+            indexDialogue = 0;
+            isTalking = false;
+            player.canMove = true;
+        }
+        else
+        {
+            ShowDialogue(dialogues[indexDialogue]);
+        }
+       
+    }
+
+    public void AddDialogues(List<Dialogue> dialoguesToAdd)
+    {
+        dialogues.Clear();
+        dialogues.AddRange(dialoguesToAdd);
     }
 
 
