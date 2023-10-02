@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 public class PlayerController : MonoBehaviour
@@ -17,11 +18,12 @@ public class PlayerController : MonoBehaviour
     public bool canMove = true;
     public float preBuffTime = .2f;
     private float actualPreBuff;
-    public bool prebuff;
+    public bool preBuff;
     public bool jumping;
     public bool coyoteJump;
     public float coyoteTime = .2f;
-    public float actualCoyoteTime;
+    private float actualCoyoteTime;
+    public ParticleSystem jumpDust;
 
     private void Start()
     {
@@ -35,13 +37,11 @@ public class PlayerController : MonoBehaviour
         isGround = IsGrounded(groundCheckCenter)
                    || IsGrounded(groundCheckLeft) 
                    || IsGrounded(groundCheckRight);
-
         if (isGround)
         {
             jumping = false;
             coyoteJump = false;
         }
-
         if (actualCoyoteTime < coyoteTime)
         {
             coyoteJump = true;
@@ -52,27 +52,20 @@ public class PlayerController : MonoBehaviour
                 coyoteJump = false;
             }
         }
-
+        
         if (actualPreBuff < preBuffTime)
         {
             actualPreBuff += 1 * Time.deltaTime;
-            prebuff = true;
+            preBuff = true;
             if (actualPreBuff >= preBuffTime)
             {
-                prebuff = false;
+                preBuff = false;
             }
         }
-
         if (rb.velocity.y < 0 && !jumping)
         {
             actualCoyoteTime = 0;
         }
-
-        if (jumping)
-        {
-            actualCoyoteTime = coyoteTime;
-        }
-
         if (canMove)
         {
             float x = Input.GetAxis("Horizontal");
@@ -82,13 +75,11 @@ public class PlayerController : MonoBehaviour
                 actualPreBuff = 0;
             }
 
-            if ((prebuff && isGround) || coyoteJump && prebuff)
+            if ((preBuff && isGround) || coyoteJump && preBuff)
             {
                 Jump();
             }
         }
-       
-
         if (rb.velocity.y < 0)
         {
             rb.velocity += Vector2.up * (Physics2D.gravity.y * ((fallMultiplierJump-1) * Time.deltaTime));
@@ -101,6 +92,7 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
+        jumpDust.Play();
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.velocity += Vector2.up * jumpPlayer;
         jumping = true;
