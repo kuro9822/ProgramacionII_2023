@@ -8,6 +8,10 @@ public class QuestGiver : MonoBehaviour
 
     public void AddQuestToQuestManager()
     {
-        QuestManager.instance.quests.Add(questToGive);
+        if (QuestManager.instance.GetQuestStatus(questToGive.nameQuest) != 
+            QUEST_STATUS.ASSIGNED)
+        {
+            QuestManager.instance.quests.Add(questToGive);
+        }
     }
 }
