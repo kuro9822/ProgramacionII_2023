@@ -10,11 +10,13 @@ public class InfoProduct : MonoBehaviour
     public TextMeshProUGUI productName, productPrize;
     private int precio;
     public Button buyButton;
+  
 
     private void Start()
     {
         MoneyManager.instance.onGainMoney += DetectMoney;
         DetectMoney();
+       
     }
 
     public void FillInfo(string nameProduct, int prizeProduct)
