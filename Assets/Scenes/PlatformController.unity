@@ -1584,7 +1584,6 @@ GameObject:
   - component: {fileID: 1153727995}
   - component: {fileID: 1153727994}
   - component: {fileID: 1153727993}
-  - component: {fileID: 1153727997}
   - component: {fileID: 1153727996}
   m_Layer: 0
   m_Name: NPCContainer (3)
@@ -1679,21 +1678,6 @@ MonoBehaviour:
   questToGive:
     nameQuest: defeat the enemy
     questStatus: 1
---- !u!114 &1153727997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1153727991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f924fe97c79249d45b7b3c7a376aa63d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  questToGive:
-    nameQuest: Talk With Me
-    questStatus: 2
 --- !u!1 &1177263124
 GameObject:
   m_ObjectHideFlags: 0
